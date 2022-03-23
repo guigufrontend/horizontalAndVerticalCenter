@@ -1,0 +1,169 @@
+/* 父元素是块级元素 */
+#container{
+    width:500px; 
+    background-color: blue;
+    height: 500px;
+}
+
+
+/* 子元素是块级元素, 水平居中 */
+/* 1. 子元素没有宽度，这时候会自动充满父元素，不存在水平居中 */
+/* 2. 子元素设定宽度 */
+#child{
+    background-color: orange;
+    height: 200px;
+    width: 200px;
+}
+
+/* 水平居中 */
+/* 方法1 */
+/* #child{
+    margin: auto;
+} */
+/* 方法2 */
+/* #container{
+    padding-left: calc( (500px - 200px)/2 );
+    box-sizing: border-box;
+} */
+/* 方法3 */
+/* #container{
+    position: relative;
+}
+#child{
+    position: absolute;
+    left:50%;
+    margin-left: -100px;
+}
+#child{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+} */
+/* 方法4 */
+/* #container{
+    display: flex;
+    justify-content: center;
+} */
+
+/* 垂直居中 */
+/* 子元素没有定高度 */
+/* 方法1 */
+/* #child{
+    height: auto;
+}
+#container{
+    display: table-cell;
+    vertical-align: middle;
+} */
+/* 方法2 */
+/* #child{
+    height: auto;
+    display: inline-block;
+}
+#container::before{
+    content:'';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+} */
+/* 方法3 */
+/* #child{
+    height: auto;
+}
+#container{
+    display: flex;
+    align-items: center;
+} */
+
+/* 子元素高度已经设定 */
+/* 方法1 */
+/* #container{
+    box-sizing: border-box;
+    padding-top: calc( (500px - 200px)/2 );
+}  */
+/* 方法2 */
+/* #child{
+    margin-top: calc( (500px - 200px)/2 );
+} */
+/* 不写下面的样式会怎么样？ */
+#container{
+    /* overflow: hidden; */
+    /* 写border不好 */
+    /* border-top: 1px solid transparent; */
+}
+/* 这个方法也行，这是BFC中的内容 */
+/* #container::before{
+    content:'';
+    display: inline-block;
+    height: 0;
+} */
+/* 方法3 */
+/* #container{
+    position: relative;
+}
+#child{
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+} */
+/* 方法4 */
+/* #container{
+    position: relative;
+}
+#child{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+/* 方法5 */
+/* #container{
+    display: flex;
+    align-items: center;
+} */
+
+/* 子元素是行内元素 */
+#child{
+    display: inline;
+}
+/* 水平居中 */
+
+/* #container{
+    text-align: center; 
+}*/
+
+/* 垂直居中 */
+
+/* 单行文本 */
+/* #container{
+    line-height: 500px;
+} */
+/* 多行文本 */
+/* #child{
+    display: inline-block;
+    vertical-align: middle;
+}
+#container::before{
+    content:'';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+
+/* 都居中 */
+/* 方法1 */
+/* #container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+/* 方法2 */
+#container{
+   position: relative;
+}
+#child{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
